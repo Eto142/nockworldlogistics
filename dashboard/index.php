@@ -1018,7 +1018,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p class="mb-0">&copy; 2025 nockworldlogistics. All Rights Reserved.</p>
+                <p class="mb-0">&copy; 2026 nockworldlogistics. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1032,16 +1032,16 @@
 <!--        let progress = 0;-->
 <!--        const status = "<?php echo STATUS; ?>";-->
         
-        // assign progress based on STATUS
+      
 <!--        if (status.includes("Received")) progress = 20;-->
 <!--        else if (status.includes("Transit")) progress = 40;-->
 <!--        else if (status.includes("Out for Delivery")) progress = 60;-->
 <!--        else if (status.includes("In Progress")) progress = 80;-->
 <!--        else if (status.includes("Delivered")) progress = 100;-->
 
-        // check screen width
+      
 <!--        if ($(window).width() <= 600) {-->
-            // ðŸ“± Vertical animation for phone
+           
 <!--            const totalSteps = $(".progress-step").length;-->
 <!--            const activeIndex = $(".progress-step.step-active").last().index() + 1;-->
 <!--            const stepHeight = $(".progress-step").outerHeight(true); -->

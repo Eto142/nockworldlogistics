@@ -199,7 +199,7 @@ if (isset($_POST['add'])) {
 //     <div class='footer'>
 //         Mailed from <b>support@nockworldlogistics.com</b><br>
 //         <a href='#'>Twitter</a>&nbsp; | &nbsp;<a href='#'>Facebook</a>&nbsp; | &nbsp;<a href='#'>Instagram</a><br>
-//         &copy; 2024 Nock World Logistics. All rights reserved.
+//         &copy; 2026 Nock World Logistics. All rights reserved.
 //     </div>
 // </body>
 //     </html>";
