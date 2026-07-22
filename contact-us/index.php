@@ -52,6 +52,10 @@ require_once "process_test_email.php";
 <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="../wp-json/oembed/1.0/embed2939.json?url=https%3A%2F%2Ffastelitelogistics.com%2Fcontact-us%2F"/>
 <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="../wp-json/oembed/1.0/embed2d43?url=https%3A%2F%2Ffastelitelogistics.com%2Fcontact-us%2F&amp;format=xml"/>
 <style>:root{--wpcargo:#00A924;}</style>
+<style>
+.elementor-menu-toggle__icon--open.eicon-menu-bar::before{font-family:"Font Awesome 6 Free" !important;font-weight:900 !important;content:"\f0c9" !important;}
+.elementor-menu-toggle__icon--close.eicon-close::before{font-family:"Font Awesome 6 Free" !important;font-weight:900 !important;content:"\f00d" !important;}
+</style>
 <meta name="generator" content="Elementor 3.23.1; features: e_optimized_css_loading, additional_custom_breakpoints, e_lazyload; settings: css_print_method-external, google_font-enabled, font_display-auto">
 <style>.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
 .e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) *{background-image:none !important;}
