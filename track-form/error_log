@@ -16,3 +16,24 @@
 [22-Feb-2026 06:45:30 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/nockworl/public_html/ad/home/process_package.php on line 3
 [22-Feb-2026 06:45:30 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/nockworl/public_html/ad/home/process_package.php on line 3
 [22-Feb-2026 06:45:38 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/nockworl/public_html/ad/home/process_package.php on line 3
+[22-Jul-2026 18:31:01 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: No such file or directory in /home/nockworl/public_html/ad/home/db.php:10
+Stack trace:
+#0 /home/nockworl/public_html/ad/home/db.php(10): mysqli->__construct('localhost', 'nockworl_nock', 'aFypu4)XOK1(', 'nockworl_nock')
+#1 /home/nockworl/public_html/ad/home/process_package.php(2): include('/home/nockworl/...')
+#2 /home/nockworl/public_html/track-form/index.php(2): include('/home/nockworl/...')
+#3 {main}
+  thrown in /home/nockworl/public_html/ad/home/db.php on line 10
+[22-Jul-2026 18:31:02 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: No such file or directory in /home/nockworl/public_html/ad/home/db.php:10
+Stack trace:
+#0 /home/nockworl/public_html/ad/home/db.php(10): mysqli->__construct('localhost', 'nockworl_nock', 'aFypu4)XOK1(', 'nockworl_nock')
+#1 /home/nockworl/public_html/ad/home/process_package.php(2): include('/home/nockworl/...')
+#2 /home/nockworl/public_html/track-form/index.php(2): include('/home/nockworl/...')
+#3 {main}
+  thrown in /home/nockworl/public_html/ad/home/db.php on line 10
+[30-Jul-2026 19:55:04 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Too many connections in /home/nockworl/public_html/ad/home/db.php:10
+Stack trace:
+#0 /home/nockworl/public_html/ad/home/db.php(10): mysqli->__construct('localhost', 'nockworl_nock', 'aFypu4)XOK1(', 'nockworl_nock')
+#1 /home/nockworl/public_html/ad/home/process_package.php(2): include('/home/nockworl/...')
+#2 /home/nockworl/public_html/track-form/index.php(2): include('/home/nockworl/...')
+#3 {main}
+  thrown in /home/nockworl/public_html/ad/home/db.php on line 10

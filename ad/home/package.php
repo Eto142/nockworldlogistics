@@ -123,25 +123,25 @@ include('includes/navbar.php');
             </div>
 
 
-<div class="form-group">
-                <label class="btn btn-danger"> Quantity</label>
-                <input type="text" name="quantity" class="form-control" value="">
-            </div>
+<!--<div class="form-group">-->
+<!--                <label class="btn btn-danger"> Quantity</label>-->
+<!--                <input type="text" name="quantity" class="form-control" value="">-->
+<!--            </div>-->
 
-            <div class="form-group">
-                <label class="btn btn-danger"> Value</label>
-                <input type="text" name="value" class="form-control" value="">
-            </div>
+            <!--<div class="form-group">-->
+<!--                <label class="btn btn-danger"> Value</label>-->
+<!--                <input type="text" name="value" class="form-control" value="">-->
+<!--            </div>-->
 
 <div class="form-group">
                 <label class="btn btn-danger"> Payment Mode</label>
                 <input type="text" name="payment_m" class="form-control" value="">
             </div>
 
-<div class="form-group">
-                <label class="btn btn-danger"> Total Freight</label>
-                <input type="text" name="total_f" class="form-control" value="">
-            </div>
+<!--<div class="form-group">-->
+<!--                <label class="btn btn-danger"> Total Freight</label>-->
+<!--                <input type="text" name="total_f" class="form-control" value="">-->
+<!--            </div>-->
 
 <div class="form-group">
                 <label class="btn btn-danger"> Expected Delivery Date</label>

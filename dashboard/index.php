@@ -767,7 +767,7 @@
                                     <table class="table table-bordered">
                                         <thead style="background-color: var(--primary-blue); color: white;">
                                             <tr>
-                                                <th>Qty</th>
+                                                <!--<th>Qty</th>-->
                                                 <th>Type</th>
                                                 <th>Height (cm)</th>
                                                 <th>Weight (kg)</th>
@@ -776,7 +776,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><?php echo htmlspecialchars(QUANT); ?></td>
+                                                <!--<td><?php echo htmlspecialchars(QUANT); ?></td>-->
                                                 <td><?php echo htmlspecialchars(PIECE_TYPE); ?></td>
                                                 <td><?php echo htmlspecialchars(HEIGHT); ?></td>
                                                 <td><?php echo htmlspecialchars(WEIGHT); ?></td>
@@ -884,18 +884,18 @@
                             <div class="info-label">Product:</div>
                             <div class="info-value"><?php echo PRODUCT; ?></div>
                         </div>
-                        <div class="info-row">
-                            <div class="info-label">Value:</div>
-                            <div class="info-value"><?php echo VALUE; ?></div>
-                        </div>
+                        <!--<div class="info-row">-->
+                        <!--    <div class="info-label">Value:</div>-->
+                        <!--    <div class="info-value"><?php echo VALUE; ?></div>-->
+                        <!--</div>-->
                         <div class="info-row">
                             <div class="info-label">Payment Mode:</div>
                             <div class="info-value"><?php echo PAYMENT_M; ?></div>
                         </div>
-                        <div class="info-row">
-                            <div class="info-label">Total Freight:</div>
-                            <div class="info-value"><?php echo TOTAL_F; ?></div>
-                        </div>
+                        <!--<div class="info-row">-->
+                        <!--    <div class="info-label">Total Freight:</div>-->
+                        <!--    <div class="info-value"><?php echo TOTAL_F; ?></div>-->
+                        <!--</div>-->
                     </div>
                 </div>
                 
