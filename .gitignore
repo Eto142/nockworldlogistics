@@ -1,0 +1,20 @@
+# Error logs
+error_log
+**/error_log
+
+# Uploads directory
+ad/home/uploads/
+**/uploads/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# PHP
+*.log
