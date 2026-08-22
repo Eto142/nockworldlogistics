@@ -50,12 +50,24 @@ if (isset($_POST['update'])) {
      $pickup_time =  $_POST['pickup_time'];
      $comment =  $_POST['comment'];
 
-   
+    // Image upload handling
+    $image_path = $row['image'];
+    if (isset($_FILES['image']) && $_FILES['image']['error'] === 0 && $_FILES['image']['size'] > 0) {
+        $targetDir = "uploads/";
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir, 0755, true);
+        }
+        $fileName = basename($_FILES['image']['name']);
+        $targetFilePath = $targetDir . $fileName;
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFilePath)) {
+            $image_path = $targetFilePath;
+        }
+    }
 
-	
-	
 
-	$update = "UPDATE users SET sendername = '$sendername', receivername = '$receivername', shipper_address = '$shipper_address',   receiver_address = '$receiver_address',   receiver_phone = '$receiver_phone',  email = '$email',  shipper_phone  = '$shipper_phone ',  shipper_email = '$shipper_email', origin = '$origin', package = '$package', status = '$status', destination = '$destination',  value = '$value', payment_m= '$payment_m', exp_delivery_date = '$exp_delivery_date', depart_time = '$depart_time', pickup_date = '$pickup_date',pickup_time = '$pickup_time',  comment = '$comment'  WHERE id='$id' ";
+
+
+	$update = "UPDATE users SET sendername = '$sendername', receivername = '$receivername', shipper_address = '$shipper_address',   receiver_address = '$receiver_address',   receiver_phone = '$receiver_phone',  email = '$email',  shipper_phone  = '$shipper_phone ',  shipper_email = '$shipper_email', origin = '$origin', package = '$package', status = '$status', destination = '$destination',  value = '$value', payment_m= '$payment_m', exp_delivery_date = '$exp_delivery_date', depart_time = '$depart_time', pickup_date = '$pickup_date',pickup_time = '$pickup_time',  comment = '$comment', image = '$image_path'  WHERE id='$id' ";
 
 		if (mysqli_query($conn, $update)){
     echo "

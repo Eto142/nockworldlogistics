@@ -19,9 +19,18 @@ include('includes/navbar.php');
   <div class="card-body">
 
 <center><h3><?php echo $row['trackingno']; ?></h3></center>
- <form method="post" action="update.php">
+ <form method="post" action="update.php" enctype="multipart/form-data">
         <div class="modal-body">
       <input type="hidden" name="id"  value="<?php echo $row['id']; ?>">
+            <div class="form-group">
+                <label class="btn btn-danger"> Image</label>
+                <br>
+                <?php if (!empty($row['image'])): ?>
+                <img src="<?php echo $row['image']; ?>" alt="package image" style="height:150px; margin:10px 0; border-radius:10px">
+                <br>
+                <?php endif; ?>
+                <input type="file" name="image" class="form-control">
+            </div>
             <div class="form-group">
                 <label class="btn btn-danger"> Tracking ID </label>
                 <input type="text" name="trackingno" class="form-control" value="<?php echo $row['trackingno']; ?>" readonly>
