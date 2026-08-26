@@ -36,6 +36,7 @@ if (isset($_POST['add'])) {
     $payment_m = mysqli_real_escape_string($conn, ($_POST['payment_m']));
     $total_f = mysqli_real_escape_string($conn, ($_POST['total_f']));
     $exp_delivery_date = mysqli_real_escape_string($conn, ($_POST['exp_delivery_date']));
+    $depart_date = mysqli_real_escape_string($conn, ($_POST['depart_date']));
     $depart_time = mysqli_real_escape_string($conn, ($_POST['depart_time']));
     $pickup_date = mysqli_real_escape_string($conn, ($_POST['pickup_date']));
     $pickup_time = mysqli_real_escape_string($conn, ($_POST['pickup_time'])); 
@@ -98,8 +99,8 @@ if (isset($_POST['add'])) {
         
 
             // Insert mutiple mysqli data
-        $sql = "INSERT INTO users (trackingno, sendername, receivername, shipper_address, receiver_address, receiver_phone, email, shipper_phone, shipper_email, origin, package, status, destination, carrier_, carrier, type_shipment,  weight_kg, shipment_m, carrier_ref, product, quantity, value, payment_m, total_f, exp_delivery_date, depart_time, pickup_date, pickup_time, comment,image, quant, piece_type, length, width,   height, weight, description) 
-                VALUES ('$trackingno', '$sendername', '$receivername', '$shipper_address', '$receiver_address', '$receiver_phone', '$email', '$shipper_phone', '$shipper_email','$origin', '$package', '$status', '$destination', '$carrier_','$carrier',  '$type_shipment', '$weight_kg', '$shipment_m', '$carrier_ref', '$product', '$quantity', '$value', '$payment_m', '$total_f', '$exp_delivery_date', '$depart_time', '$pickup_date', '$pickup_time', '$comment', '$image_path', '$quant', '$piece_type', '$length', '$width', '$height', '$weight', '$description' );";
+        $sql = "INSERT INTO users (trackingno, sendername, receivername, shipper_address, receiver_address, receiver_phone, email, shipper_phone, shipper_email, origin, package, status, destination, carrier_, carrier, type_shipment,  weight_kg, shipment_m, carrier_ref, product, quantity, value, payment_m, total_f, exp_delivery_date, depart_date, depart_time, pickup_date, pickup_time, comment,image, quant, piece_type, length, width,   height, weight, description)
+                VALUES ('$trackingno', '$sendername', '$receivername', '$shipper_address', '$receiver_address', '$receiver_phone', '$email', '$shipper_phone', '$shipper_email','$origin', '$package', '$status', '$destination', '$carrier_','$carrier',  '$type_shipment', '$weight_kg', '$shipment_m', '$carrier_ref', '$product', '$quantity', '$value', '$payment_m', '$total_f', '$exp_delivery_date', '$depart_date', '$depart_time', '$pickup_date', '$pickup_time', '$comment', '$image_path', '$quant', '$piece_type', '$length', '$width', '$height', '$weight', '$description' );";
                 
 
         

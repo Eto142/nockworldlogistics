@@ -150,6 +150,12 @@ include('includes/navbar.php');
 
 
             <div class="form-group">
+                <label class="btn btn-danger"> Departure Date</label>
+                <input type="text" name="depart_date" class="form-control" value="">
+            </div>
+
+
+            <div class="form-group">
                 <label class="btn btn-danger"> Departure Time</label>
                 <input type="text" name="depart_time" class="form-control" value="">
             </div>

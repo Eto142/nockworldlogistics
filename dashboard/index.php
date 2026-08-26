@@ -731,6 +731,13 @@
                                 <!--    <div class="info-value"><?php echo DEPART_TIME; ?></div>-->
                                 <!--</div>-->
                                 
+                                <?php if (!empty(DEPART_DATE)): ?>
+    <div class="info-row">
+        <div class="info-label">Departure Date:</div>
+        <div class="info-value"><?php echo DEPART_DATE; ?></div>
+    </div>
+<?php endif; ?>
+
                                 <?php if (!empty(DEPART_TIME)): ?>
     <div class="info-row">
         <div class="info-label">Departure Time:</div>

@@ -75,6 +75,7 @@ define('VALUE', $row['value']);
 define('PAYMENT_M', $row['payment_m']);
 define('TOTAL_F', $row['total_f']);
 define('EXP_DELIVERY_DATE', $row['exp_delivery_date']);
+define('DEPART_DATE', $row['depart_date']);
 define('DEPART_TIME', $row['depart_time']);
 define('PICKUP_DATE', $row['pickup_date']);
 define('PICKUP_TIME', $row['pickup_time']);
