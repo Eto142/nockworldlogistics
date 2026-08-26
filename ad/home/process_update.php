@@ -45,6 +45,7 @@ if (isset($_POST['update'])) {
     $value =  $_POST['value'];
     $payment_m =  $_POST['payment_m'];
     $exp_delivery_date =  $_POST['exp_delivery_date'];
+     $depart_date =  $_POST['depart_date'];
      $depart_time =  $_POST['depart_time'];
      $pickup_date =  $_POST['pickup_date'];
      $pickup_time =  $_POST['pickup_time'];
@@ -67,7 +68,7 @@ if (isset($_POST['update'])) {
 
 
 
-	$update = "UPDATE users SET sendername = '$sendername', receivername = '$receivername', shipper_address = '$shipper_address',   receiver_address = '$receiver_address',   receiver_phone = '$receiver_phone',  email = '$email',  shipper_phone  = '$shipper_phone ',  shipper_email = '$shipper_email', origin = '$origin', package = '$package', status = '$status', destination = '$destination',  value = '$value', payment_m= '$payment_m', exp_delivery_date = '$exp_delivery_date', depart_time = '$depart_time', pickup_date = '$pickup_date',pickup_time = '$pickup_time',  comment = '$comment', image = '$image_path'  WHERE id='$id' ";
+	$update = "UPDATE users SET sendername = '$sendername', receivername = '$receivername', shipper_address = '$shipper_address',   receiver_address = '$receiver_address',   receiver_phone = '$receiver_phone',  email = '$email',  shipper_phone  = '$shipper_phone ',  shipper_email = '$shipper_email', origin = '$origin', package = '$package', status = '$status', destination = '$destination',  value = '$value', payment_m= '$payment_m', exp_delivery_date = '$exp_delivery_date', depart_date = '$depart_date', depart_time = '$depart_time', pickup_date = '$pickup_date',pickup_time = '$pickup_time',  comment = '$comment', image = '$image_path'  WHERE id='$id' ";
 
 		if (mysqli_query($conn, $update)){
     echo "
