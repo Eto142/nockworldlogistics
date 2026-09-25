@@ -153,58 +153,484 @@
 <div class="elementor-element elementor-element-41c6d5c elementor-align-right elementor-widget elementor-widget-button" data-id="41c6d5c" data-element_type="widget" data-widget_type="button.default">
 <div class="elementor-widget-container">
 <div class="elementor-button-wrapper"> <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="#"> <span class="elementor-button-content-wrapper"> <span class="elementor-button-icon"> <i aria-hidden="true" class="fas fa-shipping-fast"></i> </span> <span class="elementor-button-text">Track now</span> </span> </a></div></div></div></div></div></div></section></div></div><main id="content" class="site-main post-229 page type-page status-publish hentry">
-<div class="page-header"> <h1 class="entry-title">Track</h1></div><div class="page-content">
-<div data-elementor-type="wp-page" data-elementor-id="229" class="elementor elementor-229" data-elementor-post-type="page">
-<section class="elementor-section elementor-top-section elementor-element elementor-element-6199bc6 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6199bc6" data-element_type="section">
-<div class="elementor-container elementor-column-gap-default">
-<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9eaec71" data-id="9eaec71" data-element_type="column">
-<div class="elementor-widget-wrap elementor-element-populated">
-<div class="elementor-element elementor-element-a7e5dcc elementor-widget elementor-widget-image" data-id="a7e5dcc" data-element_type="widget" data-widget_type="image.default">
-<div class="elementor-widget-container"> <img decoding="async" width="655" height="202" src="../wp-content/uploads/2022/05/confirmed.jpg" class="attachment-large size-large wp-image-714" alt="" srcset="../wp-content/uploads/2022/05/confirmed.jpg 655w, ../wp-content/uploads/2022/05/confirmed-300x93.jpg 300w" sizes="(max-width: 655px) 100vw, 655px"/></div></div></div></div></div></section>
-<section class="elementor-section elementor-top-section elementor-element elementor-element-bc7ce01 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="bc7ce01" data-element_type="section">
-<div class="elementor-container elementor-column-gap-default">
-<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-338f5ae0" data-id="338f5ae0" data-element_type="column">
-<div class="elementor-widget-wrap elementor-element-populated">
-<div class="elementor-element elementor-element-5812c00d elementor-widget elementor-widget-shortcode" data-id="5812c00d" data-element_type="widget" data-widget_type="shortcode.default">
-<div class="elementor-widget-container">
-<div class="elementor-shortcode"><style>@media
-only screen 
-and (max-width: 760px), (min-device-width: 768px) 
-and (max-device-width: 1024px)  {
-table#wpcargo-track-table tr td input[type="text"], 
-table#wpcargo-track-table tr td input[type="submit"],
-table#wpcargo-track-table tr td select, 
-table#wpcargo-track-table tr td textarea,
-form table#wpcargo-track-table{width:100% !important;min-width:100%;}
-table#wpcargo-track-table, 
-#wpcargo-track-table thead, 
-#wpcargo-track-table tbody, 
-#wpcargo-track-table th, 
-#wpcargo-track-table td,
-#wpcargo-track-table tr{display:block;}
-#wpcargo-track-tablethead tr{position:absolute;top:-9999px;left:-9999px;}
-#wpcargo-track-table tr{margin:0 0 1rem 0;}
-#wpcargo-track-table tr:nth-child(odd){background:#ccc;}
-#wpcargo-track-table td{
-border:none;border-bottom:1px solid #eee;position:relative;padding:0;}
-#wpcargo-track-table td:before{position:absolute;top:0;left:6px;width:45%;padding-right:10px;white-space:nowrap;}
-#wpcargo-track-table .submit-track{padding:16px 0;}
-}</style>
-<div class="wpcargo-track wpcargo"> 
+<!-- REDESIGNED TRACK PAGE START -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== TRACK PAGE PREMIUM REDESIGN ===== */
+.nw-track-hero {
+  background: linear-gradient(135deg, #0a0f1e 0%, #0d1b2a 40%, #0f2340 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 80px;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+.nw-track-hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(0,200,83,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.nw-track-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0,120,200,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+/* Floating particles */
+.nw-particles {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.nw-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(0,200,83,0.4);
+  animation: floatUp 8s infinite linear;
+}
+.nw-particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 9s; }
+.nw-particle:nth-child(2) { left: 25%; animation-delay: 2s; animation-duration: 7s; width: 2px; height: 2px; }
+.nw-particle:nth-child(3) { left: 45%; animation-delay: 4s; animation-duration: 11s; }
+.nw-particle:nth-child(4) { left: 65%; animation-delay: 1s; animation-duration: 8s; width: 4px; height: 4px; background: rgba(0,150,255,0.3); }
+.nw-particle:nth-child(5) { left: 80%; animation-delay: 3s; animation-duration: 10s; }
+.nw-particle:nth-child(6) { left: 90%; animation-delay: 5s; animation-duration: 6s; width: 2px; height: 2px; background: rgba(0,200,83,0.5); }
+@keyframes floatUp {
+  0% { transform: translateY(110vh) scale(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+/* Badge */
+.nw-track-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,200,83,0.12);
+  border: 1px solid rgba(0,200,83,0.3);
+  border-radius: 50px;
+  padding: 8px 20px;
+  color: #00C853;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  animation: fadeInDown 0.6s ease both;
+}
+.nw-track-badge i { font-size: 11px; }
+/* Heading */
+.nw-track-title {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 16px;
+  line-height: 1.15;
+  animation: fadeInDown 0.7s ease 0.1s both;
+}
+.nw-track-title span {
+  background: linear-gradient(135deg, #00C853, #00E676);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nw-track-subtitle {
+  color: rgba(255,255,255,0.55);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 60px;
+  max-width: 500px;
+  line-height: 1.7;
+  animation: fadeInDown 0.7s ease 0.2s both;
+}
+/* ===== STATUS TRACKER ===== */
+.nw-status-tracker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto 64px;
+  position: relative;
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+.nw-status-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  z-index: 2;
+}
+.nw-status-connector {
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  position: relative;
+  margin-top: -40px;
+  z-index: 1;
+}
+.nw-status-connector.active {
+  background: linear-gradient(90deg, #00C853, #00E676);
+  box-shadow: 0 0 12px rgba(0,200,83,0.5);
+}
+.nw-status-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 16px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.nw-status-circle.done {
+  background: linear-gradient(135deg, #00C853, #00E676);
+  box-shadow: 0 0 0 6px rgba(0,200,83,0.15), 0 8px 32px rgba(0,200,83,0.4);
+  color: #fff;
+  animation: pulseGreen 2.5s ease-in-out infinite;
+}
+.nw-status-circle.pending {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.3);
+}
+@keyframes pulseGreen {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(0,200,83,0.15), 0 8px 32px rgba(0,200,83,0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(0,200,83,0.08), 0 8px 40px rgba(0,200,83,0.6); }
+}
+.nw-status-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.nw-status-label.done { color: #00C853; }
+.nw-status-label.pending { color: rgba(255,255,255,0.35); }
+.nw-status-sublabel {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  margin-top: 4px;
+  text-align: center;
+}
 
- <b style="color: red;"><?php echo $reg_rep;?></b> 
-    <form method="post" name="wpcargo-track-form" action="index.php" method="post">
+/* ===== FORM CARD ===== */
+.nw-track-card {
+  width: 100%;
+  max-width: 680px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 48px 48px 40px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+  animation: fadeInUp 0.8s ease 0.4s both;
+  position: relative;
+  overflow: hidden;
+}
+.nw-track-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,200,83,0.5), transparent);
+}
+.nw-card-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.nw-card-label i { color: #00C853; font-size: 12px; }
+.nw-error-msg {
+  background: rgba(255,80,80,0.1);
+  border: 1px solid rgba(255,80,80,0.3);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #ff6b6b;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: none;
+}
+.nw-error-msg:not(:empty) { display: flex; align-items: center; gap: 8px; }
+.nw-input-group {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+.nw-track-input-wrap {
+  flex: 1;
+  position: relative;
+}
+.nw-track-input-wrap i {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.3);
+  font-size: 16px;
+  pointer-events: none;
+  transition: color 0.3s;
+}
+.nw-track-input {
+  width: 100%;
+  height: 58px;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 0 20px 0 50px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+.nw-track-input::placeholder { color: rgba(255,255,255,0.25); letter-spacing: 0.5px; }
+.nw-track-input:focus {
+  border-color: #00C853;
+  background: rgba(0,200,83,0.06);
+  box-shadow: 0 0 0 4px rgba(0,200,83,0.1);
+}
+.nw-track-input:focus + i { color: #00C853; }
+.nw-track-input-wrap i { z-index: 1; }
+.nw-track-btn {
+  height: 58px;
+  padding: 0 32px;
+  background: linear-gradient(135deg, #00C853, #00E676);
+  border: none;
+  border-radius: 14px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0,200,83,0.35);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nw-track-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,200,83,0.5);
+  background: linear-gradient(135deg, #00db5c, #00ff82);
+}
+.nw-track-btn:active { transform: translateY(0); }
+.nw-track-btn i { font-size: 14px; }
+.nw-hint {
+  margin-top: 16px;
+  color: rgba(255,255,255,0.25);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nw-hint i { color: rgba(0,200,83,0.5); font-size: 11px; }
+.nw-hint code {
+  background: rgba(255,255,255,0.07);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  font-family: monospace;
+}
+/* Features strip */
+.nw-features-strip {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 52px;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease 0.6s both;
+}
+.nw-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.45);
+  font-size: 13px;
+  font-weight: 500;
+}
+.nw-feature i {
+  color: #00C853;
+  font-size: 16px;
+  opacity: 0.8;
+}
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Responsive */
+@media (max-width: 600px) {
+  .nw-track-card { padding: 32px 24px 28px; border-radius: 20px; }
+  .nw-input-group { flex-direction: column; }
+  .nw-track-btn { width: 100%; justify-content: center; }
+  .nw-status-circle { width: 56px; height: 56px; font-size: 20px; }
+  .nw-status-label { font-size: 10px; letter-spacing: 0.5px; }
+  .nw-status-sublabel { display: none; }
+  .nw-status-tracker { max-width: 100%; }
+  .nw-features-strip { gap: 20px; }
+}
+/* Hide old page header */
+.page-header { display: none !important; }
+</style>
 
-     <input type="hidden" id="track_shipment_nonce" name="track_shipment_nonce" value="d41ce9fb96" /><input type="hidden" name="_wp_http_referer" value="/track-form/" /> <table id="wpcargo-track-table" class="track_form_table"> <tr class="track_form_tr"> <th class="track_form_th" colspan="2"><h4>Enter the Consignment No.</h4></th> </tr> <tr class="track_form_tr"> <td class="track_form_td">
+<div class="nw-track-hero">
+  <!-- Floating particles -->
+  <div class="nw-particles">
+    <div class="nw-particle"></div>
+    <div class="nw-particle"></div>
+    <div class="nw-particle"></div>
+    <div class="nw-particle"></div>
+    <div class="nw-particle"></div>
+    <div class="nw-particle"></div>
+  </div>
 
-        <input class="input_track_num" type="text"  name="trackid" value="" autocomplete="off" placeholder="Enter Tracking Number" required></td> <td class="track_form_td submit-track">
+  <!-- Badge -->
+  <div class="nw-track-badge">
+    <i class="fas fa-satellite-dish"></i>
+    Real-Time Tracking
+  </div>
 
-            <input class="wpcargo-btn wpcargo-btn-primary" name="track"  type="submit" value="TRACK RESULT"></td> </tr> <tr class="track_form_tr"><td class="track_form_td" colspan="2"><h4>Ex: 12345</h4></td></tr> </table> 
+  <!-- Title -->
+  <h1 class="nw-track-title">Track Your <span>Shipment</span></h1>
+  <p class="nw-track-subtitle">Enter your consignment number to get instant updates on your package's journey.</p>
 
- </form>
+  <!-- Status Tracker (replaces old confirmed.jpg) -->
+  <div class="nw-status-tracker">
+    <div class="nw-status-item">
+      <div class="nw-status-circle done">
+        <i class="fas fa-check"></i>
+      </div>
+      <div class="nw-status-label done">Confirmed</div>
+      <div class="nw-status-sublabel">Order placed</div>
+    </div>
+    <div class="nw-status-connector active"></div>
+    <div class="nw-status-item">
+      <div class="nw-status-circle done">
+        <i class="fas fa-clipboard-list"></i>
+      </div>
+      <div class="nw-status-label done">Processing</div>
+      <div class="nw-status-sublabel">Preparing cargo</div>
+    </div>
+    <div class="nw-status-connector"></div>
+    <div class="nw-status-item">
+      <div class="nw-status-circle pending">
+        <i class="fas fa-truck"></i>
+      </div>
+      <div class="nw-status-label pending">In Transit</div>
+      <div class="nw-status-sublabel">En route</div>
+    </div>
+    <div class="nw-status-connector"></div>
+    <div class="nw-status-item">
+      <div class="nw-status-circle pending">
+        <i class="fas fa-box-open"></i>
+      </div>
+      <div class="nw-status-label pending">Delivered</div>
+      <div class="nw-status-sublabel">Final destination</div>
+    </div>
+  </div>
 
+  <!-- Tracking Card -->
+  <div class="nw-track-card">
+    <div class="nw-card-label">
+      <i class="fas fa-barcode"></i>
+      Consignment Number
+    </div>
 
-</div></div></div></div></div></div></div></section></div></div></main>
+    <b style="color:#ff6b6b; font-size:14px; display:block; margin-bottom:12px;"><?php echo $reg_rep;?></b>
+
+    <form method="post" name="wpcargo-track-form" action="index.php">
+      <input type="hidden" id="track_shipment_nonce" name="track_shipment_nonce" value="d41ce9fb96" />
+      <input type="hidden" name="_wp_http_referer" value="/track-form/" />
+
+      <div class="nw-input-group">
+        <div class="nw-track-input-wrap">
+          <input
+            class="nw-track-input"
+            type="text"
+            name="trackid"
+            value=""
+            autocomplete="off"
+            placeholder="e.g. 12345"
+            required
+            id="nw-trackid-input"
+          >
+          <i class="fas fa-search" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.3);pointer-events:none;"></i>
+        </div>
+        <button class="nw-track-btn" type="submit" name="track">
+          <i class="fas fa-location-arrow"></i>
+          Track
+        </button>
+      </div>
+
+      <div class="nw-hint">
+        <i class="fas fa-info-circle"></i>
+        Example: <code>12345</code> &nbsp;•&nbsp; Enter your tracking ID above
+      </div>
+    </form>
+  </div>
+
+  <!-- Features strip -->
+  <div class="nw-features-strip">
+    <div class="nw-feature">
+      <i class="fas fa-globe-americas"></i>
+      Worldwide Tracking
+    </div>
+    <div class="nw-feature">
+      <i class="fas fa-bolt"></i>
+      Instant Updates
+    </div>
+    <div class="nw-feature">
+      <i class="fas fa-shield-alt"></i>
+      Secure & Reliable
+    </div>
+    <div class="nw-feature">
+      <i class="fas fa-clock"></i>
+      24/7 Monitoring
+    </div>
+  </div>
+</div>
+<!-- REDESIGNED TRACK PAGE END -->
+</div></div></main>
 <div data-elementor-type="footer" data-elementor-id="21" class="elementor elementor-21 elementor-location-footer" data-elementor-post-type="elementor_library">
 <div class="elementor-section-wrap">
 <section class="elementor-section elementor-top-section elementor-element elementor-element-52de6a56 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="52de6a56" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
