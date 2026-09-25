@@ -154,42 +154,56 @@
 <div class="elementor-widget-container">
 <div class="elementor-button-wrapper"> <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="#"> <span class="elementor-button-content-wrapper"> <span class="elementor-button-icon"> <i aria-hidden="true" class="fas fa-shipping-fast"></i> </span> <span class="elementor-button-text">Track now</span> </span> </a></div></div></div></div></div></div></section></div></div><main id="content" class="site-main post-229 page type-page status-publish hentry">
 <!-- REDESIGNED TRACK PAGE START -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* ===== TRACK PAGE RED & WHITE REDESIGN ===== */
+/* ===== TRACK PAGE — SLEEK RED & WHITE ===== */
 .nw-track-hero {
-  background: #ffffff;
+  background: #fafafa;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px 80px;
+  padding: 80px 20px 100px;
   font-family: 'Inter', sans-serif;
   position: relative;
   overflow: hidden;
-  border-top: 6px solid #d32f2f;
 }
 .nw-track-hero::before {
   content: '';
   position: absolute;
-  top: -200px;
+  top: -300px;
   left: 50%;
   transform: translateX(-50%);
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(211,47,47,0.06) 0%, transparent 70%);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, rgba(211,47,47,0.04) 0%, transparent 65%);
   pointer-events: none;
 }
 .nw-track-hero::after {
   content: '';
   position: absolute;
-  bottom: -100px;
-  right: -100px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(211,47,47,0.04) 0%, transparent 70%);
+  bottom: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(211,47,47,0.03) 0%, transparent 65%);
   pointer-events: none;
+}
+/* Top accent bar */
+.nw-track-hero .nw-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #b71c1c, #d32f2f, #e53935, #d32f2f, #b71c1c);
+  background-size: 200% 100%;
+  animation: shimmerBar 3s ease-in-out infinite;
+}
+@keyframes shimmerBar {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 /* Floating particles */
 .nw-particles {
@@ -203,15 +217,15 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: rgba(211,47,47,0.25);
-  animation: floatUp 8s infinite linear;
+  background: rgba(211,47,47,0.12);
+  animation: floatUp 10s infinite linear;
 }
-.nw-particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 9s; }
-.nw-particle:nth-child(2) { left: 25%; animation-delay: 2s; animation-duration: 7s; width: 2px; height: 2px; }
-.nw-particle:nth-child(3) { left: 45%; animation-delay: 4s; animation-duration: 11s; }
-.nw-particle:nth-child(4) { left: 65%; animation-delay: 1s; animation-duration: 8s; width: 4px; height: 4px; background: rgba(211,47,47,0.15); }
-.nw-particle:nth-child(5) { left: 80%; animation-delay: 3s; animation-duration: 10s; }
-.nw-particle:nth-child(6) { left: 90%; animation-delay: 5s; animation-duration: 6s; width: 2px; height: 2px; background: rgba(211,47,47,0.3); }
+.nw-particle:nth-child(1) { left: 8%; animation-delay: 0s; animation-duration: 11s; }
+.nw-particle:nth-child(2) { left: 22%; animation-delay: 2s; animation-duration: 9s; width: 2px; height: 2px; }
+.nw-particle:nth-child(3) { left: 42%; animation-delay: 4s; animation-duration: 13s; }
+.nw-particle:nth-child(4) { left: 62%; animation-delay: 1s; animation-duration: 10s; width: 4px; height: 4px; background: rgba(211,47,47,0.08); }
+.nw-particle:nth-child(5) { left: 78%; animation-delay: 3s; animation-duration: 12s; }
+.nw-particle:nth-child(6) { left: 92%; animation-delay: 5s; animation-duration: 8s; width: 2px; height: 2px; background: rgba(211,47,47,0.15); }
 @keyframes floatUp {
   0% { transform: translateY(110vh) scale(0); opacity: 0; }
   10% { opacity: 1; }
@@ -223,31 +237,33 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #fdeaea;
-  border: 1px solid #f5c6c6;
+  background: #ffffff;
+  border: 1.5px solid #f5c6c6;
   border-radius: 50px;
-  padding: 8px 20px;
-  color: #d32f2f;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
+  padding: 9px 22px;
+  color: #b71c1c;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   animation: fadeInDown 0.6s ease both;
+  box-shadow: 0 2px 12px rgba(211,47,47,0.08);
 }
-.nw-track-badge i { font-size: 11px; }
+.nw-track-badge i { font-size: 10px; color: #d32f2f; }
 /* Heading */
 .nw-track-title {
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 800;
-  color: #1a1a2e;
+  font-size: clamp(36px, 5.5vw, 64px);
+  font-weight: 900;
+  color: #0f0f1a;
   text-align: center;
-  margin: 0 0 16px;
-  line-height: 1.15;
+  margin: 0 0 20px;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
   animation: fadeInDown 0.7s ease 0.1s both;
 }
 .nw-track-title span {
-  background: linear-gradient(135deg, #d32f2f, #e53935);
+  background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 50%, #e53935 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -257,9 +273,10 @@
   font-size: 16px;
   font-weight: 400;
   text-align: center;
-  margin: 0 0 60px;
-  max-width: 500px;
-  line-height: 1.7;
+  margin: 0 0 64px;
+  max-width: 520px;
+  line-height: 1.75;
+  letter-spacing: 0.2px;
   animation: fadeInDown 0.7s ease 0.2s both;
 }
 /* ===== STATUS TRACKER ===== */
@@ -268,8 +285,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 780px;
-  margin: 0 auto 64px;
+  max-width: 820px;
+  margin: 0 auto 72px;
   position: relative;
   animation: fadeInUp 0.8s ease 0.3s both;
 }
@@ -283,69 +300,74 @@
 }
 .nw-status-connector {
   flex: 1;
-  height: 3px;
+  height: 2px;
   background: #e5e7eb;
   position: relative;
-  margin-top: -40px;
+  margin-top: -44px;
   z-index: 1;
   border-radius: 2px;
 }
 .nw-status-connector.active {
   background: linear-gradient(90deg, #d32f2f, #e53935);
-  box-shadow: 0 0 12px rgba(211,47,47,0.3);
+  box-shadow: 0 0 16px rgba(211,47,47,0.25);
 }
 .nw-status-circle {
-  width: 80px;
-  height: 80px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
-  margin-bottom: 16px;
+  font-size: 30px;
+  margin-bottom: 18px;
   position: relative;
   transition: all 0.3s ease;
 }
 .nw-status-circle.done {
-  background: linear-gradient(135deg, #d32f2f, #e53935);
-  box-shadow: 0 0 0 6px rgba(211,47,47,0.12), 0 8px 32px rgba(211,47,47,0.25);
+  background: linear-gradient(135deg, #b71c1c, #d32f2f);
+  box-shadow: 0 0 0 5px #ffffff, 0 0 0 8px rgba(211,47,47,0.15), 0 12px 40px rgba(211,47,47,0.3);
   color: #fff;
-  animation: pulseRed 2.5s ease-in-out infinite;
+  animation: pulseRed 3s ease-in-out infinite;
 }
 .nw-status-circle.pending {
   background: #ffffff;
   border: 2px solid #e5e7eb;
-  color: #9ca3af;
+  color: #d1d5db;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
 @keyframes pulseRed {
-  0%, 100% { box-shadow: 0 0 0 6px rgba(211,47,47,0.12), 0 8px 32px rgba(211,47,47,0.25); }
-  50% { box-shadow: 0 0 0 12px rgba(211,47,47,0.06), 0 8px 40px rgba(211,47,47,0.4); }
+  0%, 100% { box-shadow: 0 0 0 5px #ffffff, 0 0 0 8px rgba(211,47,47,0.15), 0 12px 40px rgba(211,47,47,0.3); }
+  50% { box-shadow: 0 0 0 5px #ffffff, 0 0 0 14px rgba(211,47,47,0.06), 0 12px 48px rgba(211,47,47,0.45); }
 }
 .nw-status-label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
   text-transform: uppercase;
   text-align: center;
 }
-.nw-status-label.done { color: #d32f2f; }
-.nw-status-label.pending { color: #9ca3af; }
+.nw-status-label.done { color: #b71c1c; }
+.nw-status-label.pending { color: #d1d5db; }
 .nw-status-sublabel {
   font-size: 11px;
   color: #9ca3af;
-  margin-top: 4px;
+  margin-top: 5px;
   text-align: center;
+  font-weight: 400;
 }
 
 /* ===== FORM CARD ===== */
 .nw-track-card {
   width: 100%;
-  max-width: 680px;
+  max-width: 700px;
   background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 24px;
-  padding: 48px 48px 40px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.03);
+  border: 1px solid #eaeaef;
+  border-radius: 28px;
+  padding: 56px 56px 48px;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.02),
+    0 8px 24px rgba(0,0,0,0.04),
+    0 32px 80px rgba(211,47,47,0.06);
   animation: fadeInUp 0.8s ease 0.4s both;
   position: relative;
   overflow: hidden;
@@ -355,19 +377,20 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #d32f2f, #e53935);
+  background: linear-gradient(90deg, #b71c1c, #d32f2f, #e53935, #d32f2f, #b71c1c);
 }
 .nw-card-label {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #4b5563;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  margin-bottom: 12px;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
 }
-.nw-card-label i { color: #d32f2f; font-size: 12px; }
+.nw-card-label i { color: #d32f2f; font-size: 13px; }
 .nw-error-msg {
   background: #fef2f2;
   border: 1px solid #fecaca;
@@ -382,7 +405,7 @@
 .nw-error-msg:not(:empty) { display: flex; align-items: center; gap: 8px; }
 .nw-input-group {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   align-items: stretch;
 }
 .nw-track-input-wrap {
@@ -391,88 +414,91 @@
 }
 .nw-track-input-wrap i {
   position: absolute;
-  left: 18px;
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
-  color: #9ca3af;
+  color: #b0b7c3;
   font-size: 16px;
   pointer-events: none;
   transition: color 0.3s;
 }
 .nw-track-input {
   width: 100%;
-  height: 58px;
-  background: #f9fafb;
-  border: 1.5px solid #e5e7eb;
-  border-radius: 14px;
-  color: #1a1a2e;
+  height: 62px;
+  background: #f8f9fb;
+  border: 2px solid #e8eaef;
+  border-radius: 16px;
+  color: #0f0f1a;
   font-family: 'Inter', sans-serif;
   font-size: 15px;
-  font-weight: 500;
-  padding: 0 20px 0 50px;
+  font-weight: 600;
+  padding: 0 22px 0 54px;
   outline: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-sizing: border-box;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
-.nw-track-input::placeholder { color: #9ca3af; letter-spacing: 0.5px; }
+.nw-track-input::placeholder { color: #b0b7c3; letter-spacing: 0.5px; font-weight: 400; }
 .nw-track-input:focus {
   border-color: #d32f2f;
   background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(211,47,47,0.1);
+  box-shadow: 0 0 0 5px rgba(211,47,47,0.08);
 }
 .nw-track-input:focus + i { color: #d32f2f; }
 .nw-track-input-wrap i { z-index: 1; }
 .nw-track-btn {
-  height: 58px;
-  padding: 0 32px;
-  background: linear-gradient(135deg, #d32f2f, #e53935);
+  height: 62px;
+  padding: 0 38px;
+  background: linear-gradient(135deg, #b71c1c, #d32f2f);
   border: none;
-  border-radius: 14px;
+  border-radius: 16px;
   color: #fff;
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
-  box-shadow: 0 8px 24px rgba(211,47,47,0.3);
+  box-shadow: 0 8px 28px rgba(211,47,47,0.3);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 .nw-track-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(211,47,47,0.45);
-  background: linear-gradient(135deg, #b71c1c, #d32f2f);
+  box-shadow: 0 14px 40px rgba(211,47,47,0.4);
+  background: linear-gradient(135deg, #8e0000, #b71c1c);
 }
 .nw-track-btn:active { transform: translateY(0); }
 .nw-track-btn i { font-size: 14px; }
 .nw-hint {
-  margin-top: 16px;
+  margin-top: 18px;
   color: #9ca3af;
   font-size: 12px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
+  font-weight: 400;
 }
-.nw-hint i { color: #d32f2f; opacity: 0.6; font-size: 11px; }
+.nw-hint i { color: #d32f2f; opacity: 0.5; font-size: 11px; }
 .nw-hint code {
   background: #f3f4f6;
-  padding: 2px 8px;
-  border-radius: 6px;
+  padding: 3px 10px;
+  border-radius: 7px;
   font-size: 12px;
-  color: #4b5563;
-  font-family: monospace;
+  color: #374151;
+  font-family: 'SF Mono', monospace;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 /* Features strip */
 .nw-features-strip {
   display: flex;
-  gap: 32px;
+  gap: 40px;
   justify-content: center;
-  margin-top: 52px;
+  margin-top: 64px;
   flex-wrap: wrap;
   animation: fadeInUp 0.8s ease 0.6s both;
 }
@@ -482,12 +508,13 @@
   gap: 10px;
   color: #6b7280;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.2px;
 }
 .nw-feature i {
   color: #d32f2f;
   font-size: 16px;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 /* Animations */
 @keyframes fadeInDown {
@@ -500,20 +527,24 @@
 }
 /* Responsive */
 @media (max-width: 600px) {
+  .nw-track-hero { padding: 50px 16px 70px; }
   .nw-track-card { padding: 32px 24px 28px; border-radius: 20px; }
   .nw-input-group { flex-direction: column; }
   .nw-track-btn { width: 100%; justify-content: center; }
-  .nw-status-circle { width: 56px; height: 56px; font-size: 20px; }
-  .nw-status-label { font-size: 10px; letter-spacing: 0.5px; }
+  .nw-status-circle { width: 60px; height: 60px; font-size: 22px; }
+  .nw-status-label { font-size: 9px; letter-spacing: 1px; }
   .nw-status-sublabel { display: none; }
   .nw-status-tracker { max-width: 100%; }
+  .nw-status-connector { margin-top: -34px; }
   .nw-features-strip { gap: 20px; }
+  .nw-track-title { letter-spacing: -1px; }
 }
 /* Hide old page header */
 .page-header { display: none !important; }
 </style>
 
 <div class="nw-track-hero">
+  <div class="nw-accent-bar"></div>
   <!-- Floating particles -->
   <div class="nw-particles">
     <div class="nw-particle"></div>
@@ -594,7 +625,7 @@
             required
             id="nw-trackid-input"
           >
-          <i class="fas fa-search" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);color:#9ca3af;pointer-events:none;"></i>
+          <i class="fas fa-search" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#b0b7c3;pointer-events:none;"></i>
         </div>
         <button class="nw-track-btn" type="submit" name="track">
           <i class="fas fa-location-arrow"></i>
