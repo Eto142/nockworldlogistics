@@ -156,9 +156,9 @@
 <!-- REDESIGNED TRACK PAGE START -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ===== TRACK PAGE PREMIUM REDESIGN ===== */
+/* ===== TRACK PAGE RED & WHITE REDESIGN ===== */
 .nw-track-hero {
-  background: linear-gradient(135deg, #0a0f1e 0%, #0d1b2a 40%, #0f2340 100%);
+  background: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -168,6 +168,7 @@
   font-family: 'Inter', sans-serif;
   position: relative;
   overflow: hidden;
+  border-top: 6px solid #d32f2f;
 }
 .nw-track-hero::before {
   content: '';
@@ -177,7 +178,7 @@
   transform: translateX(-50%);
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(0,200,83,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(211,47,47,0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 .nw-track-hero::after {
@@ -187,7 +188,7 @@
   right: -100px;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(0,120,200,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(211,47,47,0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 /* Floating particles */
@@ -202,15 +203,15 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: rgba(0,200,83,0.4);
+  background: rgba(211,47,47,0.25);
   animation: floatUp 8s infinite linear;
 }
 .nw-particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 9s; }
 .nw-particle:nth-child(2) { left: 25%; animation-delay: 2s; animation-duration: 7s; width: 2px; height: 2px; }
 .nw-particle:nth-child(3) { left: 45%; animation-delay: 4s; animation-duration: 11s; }
-.nw-particle:nth-child(4) { left: 65%; animation-delay: 1s; animation-duration: 8s; width: 4px; height: 4px; background: rgba(0,150,255,0.3); }
+.nw-particle:nth-child(4) { left: 65%; animation-delay: 1s; animation-duration: 8s; width: 4px; height: 4px; background: rgba(211,47,47,0.15); }
 .nw-particle:nth-child(5) { left: 80%; animation-delay: 3s; animation-duration: 10s; }
-.nw-particle:nth-child(6) { left: 90%; animation-delay: 5s; animation-duration: 6s; width: 2px; height: 2px; background: rgba(0,200,83,0.5); }
+.nw-particle:nth-child(6) { left: 90%; animation-delay: 5s; animation-duration: 6s; width: 2px; height: 2px; background: rgba(211,47,47,0.3); }
 @keyframes floatUp {
   0% { transform: translateY(110vh) scale(0); opacity: 0; }
   10% { opacity: 1; }
@@ -222,11 +223,11 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(0,200,83,0.12);
-  border: 1px solid rgba(0,200,83,0.3);
+  background: #fdeaea;
+  border: 1px solid #f5c6c6;
   border-radius: 50px;
   padding: 8px 20px;
-  color: #00C853;
+  color: #d32f2f;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -239,20 +240,20 @@
 .nw-track-title {
   font-size: clamp(32px, 5vw, 56px);
   font-weight: 800;
-  color: #ffffff;
+  color: #1a1a2e;
   text-align: center;
   margin: 0 0 16px;
   line-height: 1.15;
   animation: fadeInDown 0.7s ease 0.1s both;
 }
 .nw-track-title span {
-  background: linear-gradient(135deg, #00C853, #00E676);
+  background: linear-gradient(135deg, #d32f2f, #e53935);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .nw-track-subtitle {
-  color: rgba(255,255,255,0.55);
+  color: #6b7280;
   font-size: 16px;
   font-weight: 400;
   text-align: center;
@@ -283,14 +284,15 @@
 .nw-status-connector {
   flex: 1;
   height: 3px;
-  background: rgba(255,255,255,0.1);
+  background: #e5e7eb;
   position: relative;
   margin-top: -40px;
   z-index: 1;
+  border-radius: 2px;
 }
 .nw-status-connector.active {
-  background: linear-gradient(90deg, #00C853, #00E676);
-  box-shadow: 0 0 12px rgba(0,200,83,0.5);
+  background: linear-gradient(90deg, #d32f2f, #e53935);
+  box-shadow: 0 0 12px rgba(211,47,47,0.3);
 }
 .nw-status-circle {
   width: 80px;
@@ -305,19 +307,19 @@
   transition: all 0.3s ease;
 }
 .nw-status-circle.done {
-  background: linear-gradient(135deg, #00C853, #00E676);
-  box-shadow: 0 0 0 6px rgba(0,200,83,0.15), 0 8px 32px rgba(0,200,83,0.4);
+  background: linear-gradient(135deg, #d32f2f, #e53935);
+  box-shadow: 0 0 0 6px rgba(211,47,47,0.12), 0 8px 32px rgba(211,47,47,0.25);
   color: #fff;
-  animation: pulseGreen 2.5s ease-in-out infinite;
+  animation: pulseRed 2.5s ease-in-out infinite;
 }
 .nw-status-circle.pending {
-  background: rgba(255,255,255,0.05);
-  border: 2px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.3);
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  color: #9ca3af;
 }
-@keyframes pulseGreen {
-  0%, 100% { box-shadow: 0 0 0 6px rgba(0,200,83,0.15), 0 8px 32px rgba(0,200,83,0.4); }
-  50% { box-shadow: 0 0 0 12px rgba(0,200,83,0.08), 0 8px 40px rgba(0,200,83,0.6); }
+@keyframes pulseRed {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(211,47,47,0.12), 0 8px 32px rgba(211,47,47,0.25); }
+  50% { box-shadow: 0 0 0 12px rgba(211,47,47,0.06), 0 8px 40px rgba(211,47,47,0.4); }
 }
 .nw-status-label {
   font-size: 12px;
@@ -326,11 +328,11 @@
   text-transform: uppercase;
   text-align: center;
 }
-.nw-status-label.done { color: #00C853; }
-.nw-status-label.pending { color: rgba(255,255,255,0.35); }
+.nw-status-label.done { color: #d32f2f; }
+.nw-status-label.pending { color: #9ca3af; }
 .nw-status-sublabel {
   font-size: 11px;
-  color: rgba(255,255,255,0.25);
+  color: #9ca3af;
   margin-top: 4px;
   text-align: center;
 }
@@ -339,13 +341,11 @@
 .nw-track-card {
   width: 100%;
   max-width: 680px;
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 24px;
   padding: 48px 48px 40px;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.03);
   animation: fadeInUp 0.8s ease 0.4s both;
   position: relative;
   overflow: hidden;
@@ -354,26 +354,26 @@
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0,200,83,0.5), transparent);
+  height: 4px;
+  background: linear-gradient(90deg, #d32f2f, #e53935);
 }
 .nw-card-label {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: rgba(255,255,255,0.6);
+  color: #4b5563;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.5px;
   margin-bottom: 12px;
 }
-.nw-card-label i { color: #00C853; font-size: 12px; }
+.nw-card-label i { color: #d32f2f; font-size: 12px; }
 .nw-error-msg {
-  background: rgba(255,80,80,0.1);
-  border: 1px solid rgba(255,80,80,0.3);
+  background: #fef2f2;
+  border: 1px solid #fecaca;
   border-radius: 12px;
   padding: 12px 16px;
-  color: #ff6b6b;
+  color: #dc2626;
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 20px;
@@ -394,7 +394,7 @@
   left: 18px;
   top: 50%;
   transform: translateY(-50%);
-  color: rgba(255,255,255,0.3);
+  color: #9ca3af;
   font-size: 16px;
   pointer-events: none;
   transition: color 0.3s;
@@ -402,10 +402,10 @@
 .nw-track-input {
   width: 100%;
   height: 58px;
-  background: rgba(255,255,255,0.06);
-  border: 1.5px solid rgba(255,255,255,0.1);
+  background: #f9fafb;
+  border: 1.5px solid #e5e7eb;
   border-radius: 14px;
-  color: #ffffff;
+  color: #1a1a2e;
   font-family: 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 500;
@@ -415,18 +415,18 @@
   box-sizing: border-box;
   letter-spacing: 1px;
 }
-.nw-track-input::placeholder { color: rgba(255,255,255,0.25); letter-spacing: 0.5px; }
+.nw-track-input::placeholder { color: #9ca3af; letter-spacing: 0.5px; }
 .nw-track-input:focus {
-  border-color: #00C853;
-  background: rgba(0,200,83,0.06);
-  box-shadow: 0 0 0 4px rgba(0,200,83,0.1);
+  border-color: #d32f2f;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(211,47,47,0.1);
 }
-.nw-track-input:focus + i { color: #00C853; }
+.nw-track-input:focus + i { color: #d32f2f; }
 .nw-track-input-wrap i { z-index: 1; }
 .nw-track-btn {
   height: 58px;
   padding: 0 32px;
-  background: linear-gradient(135deg, #00C853, #00E676);
+  background: linear-gradient(135deg, #d32f2f, #e53935);
   border: none;
   border-radius: 14px;
   color: #fff;
@@ -438,33 +438,33 @@
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
-  box-shadow: 0 8px 24px rgba(0,200,83,0.35);
+  box-shadow: 0 8px 24px rgba(211,47,47,0.3);
   display: flex;
   align-items: center;
   gap: 8px;
 }
 .nw-track-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0,200,83,0.5);
-  background: linear-gradient(135deg, #00db5c, #00ff82);
+  box-shadow: 0 12px 32px rgba(211,47,47,0.45);
+  background: linear-gradient(135deg, #b71c1c, #d32f2f);
 }
 .nw-track-btn:active { transform: translateY(0); }
 .nw-track-btn i { font-size: 14px; }
 .nw-hint {
   margin-top: 16px;
-  color: rgba(255,255,255,0.25);
+  color: #9ca3af;
   font-size: 12px;
   display: flex;
   align-items: center;
   gap: 6px;
 }
-.nw-hint i { color: rgba(0,200,83,0.5); font-size: 11px; }
+.nw-hint i { color: #d32f2f; opacity: 0.6; font-size: 11px; }
 .nw-hint code {
-  background: rgba(255,255,255,0.07);
+  background: #f3f4f6;
   padding: 2px 8px;
   border-radius: 6px;
   font-size: 12px;
-  color: rgba(255,255,255,0.4);
+  color: #4b5563;
   font-family: monospace;
 }
 /* Features strip */
@@ -480,12 +480,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: rgba(255,255,255,0.45);
+  color: #6b7280;
   font-size: 13px;
   font-weight: 500;
 }
 .nw-feature i {
-  color: #00C853;
+  color: #d32f2f;
   font-size: 16px;
   opacity: 0.8;
 }
@@ -576,7 +576,7 @@
       Consignment Number
     </div>
 
-    <b style="color:#ff6b6b; font-size:14px; display:block; margin-bottom:12px;"><?php echo $reg_rep;?></b>
+    <b style="color:#d32f2f; font-size:14px; display:block; margin-bottom:12px;"><?php echo $reg_rep;?></b>
 
     <form method="post" name="wpcargo-track-form" action="index.php">
       <input type="hidden" id="track_shipment_nonce" name="track_shipment_nonce" value="d41ce9fb96" />
@@ -594,7 +594,7 @@
             required
             id="nw-trackid-input"
           >
-          <i class="fas fa-search" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.3);pointer-events:none;"></i>
+          <i class="fas fa-search" style="position:absolute;left:18px;top:50%;transform:translateY(-50%);color:#9ca3af;pointer-events:none;"></i>
         </div>
         <button class="nw-track-btn" type="submit" name="track">
           <i class="fas fa-location-arrow"></i>
