@@ -154,6 +154,746 @@
 <div class="elementor-widget-container">
 <div class="elementor-button-wrapper"> <a class="elementor-button elementor-button-link elementor-size-sm elementor-animation-float" href="#"> <span class="elementor-button-content-wrapper"> <span class="elementor-button-icon"> <i aria-hidden="true" class="fas fa-shipping-fast"></i> </span> <span class="elementor-button-text">Track now</span> </span> </a></div></div></div></div></div></div></section></div></div><main id="content" class="site-main post-229 page type-page status-publish hentry">
 <!-- REDESIGNED TRACK PAGE START -->
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Muli:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== NOCKWORLD TRACK PAGE — BRAND COLORS ===== */
+:root {
+  --nw-red:      #D42B22;
+  --nw-red-dark: #A81A12;
+  --nw-navy:     #023761;
+  --nw-dark:     #202E30;
+  --nw-white:    #FFFFFF;
+  --nw-light-bg: #EFF4F9;
+  --nw-gray:     #798283;
+  --nw-orange:   #FF7900;
+}
+
+/* ── Hero wrapper ── */
+.nw-track-hero {
+  background: linear-gradient(160deg, #023761 0%, #012446 60%, #010f1e 100%);
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 20px 88px;
+  font-family: 'Muli', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+/* red diagonal slash accent top-left */
+.nw-track-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 520px; height: 520px;
+  background: radial-gradient(ellipse at top left, rgba(212,43,34,0.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+/* subtle bottom right glow */
+.nw-track-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; right: -80px;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(212,43,34,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Decorative grid lines ── */
+.nw-grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.04;
+}
+.nw-grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* ── Hero badge ── */
+.nw-track-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212,43,34,0.18);
+  border: 1.5px solid rgba(212,43,34,0.55);
+  border-radius: 4px;
+  padding: 6px 18px;
+  color: #ff8a84;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  animation: nwFadeDown 0.6s ease both;
+}
+.nw-track-badge i { font-size: 10px; }
+
+/* ── Title ── */
+.nw-track-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 10px;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: nwFadeDown 0.65s ease 0.08s both;
+}
+.nw-track-title .nw-accent {
+  color: var(--nw-red);
+  position: relative;
+}
+.nw-track-subtitle {
+  color: rgba(255,255,255,0.52);
+  font-family: 'Muli', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 56px;
+  max-width: 480px;
+  line-height: 1.75;
+  animation: nwFadeDown 0.65s ease 0.16s both;
+}
+
+/* ══════════════════════════
+   STATUS TRACKER — CARD TILES
+══════════════════════════ */
+.nw-status-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 64px;
+  animation: nwFadeUp 0.8s ease 0.24s both;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* ── Each step tile ── */
+.nw-st-tile {
+  position: relative;
+  padding: 28px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  overflow: hidden;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.3s ease;
+  cursor: default;
+  min-height: 180px;
+}
+.nw-st-tile:last-child { border-right: none; }
+
+/* ── DONE tile (completed) ── */
+.nw-st-tile.done {
+  background: linear-gradient(145deg, rgba(212,43,34,0.22) 0%, rgba(168,26,18,0.14) 100%);
+}
+/* red progress fill bar at bottom */
+.nw-st-tile.done::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--nw-red-dark), var(--nw-red));
+  box-shadow: 0 0 8px rgba(212,43,34,0.6);
+}
+
+/* ── PENDING tile ── */
+.nw-st-tile.pending {
+  background: rgba(255,255,255,0.03);
+}
+.nw-st-tile.pending::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: rgba(255,255,255,0.07);
+}
+
+/* ── ACTIVE tile (currently processing) ── */
+.nw-st-tile.active {
+  background: linear-gradient(145deg, rgba(212,43,34,0.32) 0%, rgba(168,26,18,0.20) 100%);
+  box-shadow: inset 0 0 40px rgba(212,43,34,0.12);
+}
+.nw-st-tile.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--nw-red), transparent);
+  animation: nwScanLine 2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(212,43,34,0.7);
+}
+@keyframes nwScanLine {
+  0%   { width: 20%; opacity: 1; }
+  60%  { width: 80%; opacity: 1; }
+  100% { width: 20%; opacity: 0.4; }
+}
+
+/* ── Step number ── */
+.nw-st-num {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nw-st-num .nw-step-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+  flex-shrink: 0;
+  font-family: 'Rajdhani', sans-serif;
+}
+.done  .nw-step-dot {
+  background: var(--nw-red);
+  color: #fff;
+  box-shadow: 0 0 8px rgba(212,43,34,0.5);
+}
+.active .nw-step-dot {
+  background: var(--nw-red);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(212,43,34,0.7);
+  animation: nwPulseRed 2s ease-in-out infinite;
+}
+.pending .nw-step-dot {
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.3);
+}
+.done   .nw-st-num-text { color: rgba(212,43,34,0.8); }
+.active .nw-st-num-text { color: rgba(212,43,34,0.9); }
+.pending .nw-st-num-text { color: rgba(255,255,255,0.2); }
+
+/* ── Big icon ── */
+.nw-st-big-icon {
+  font-size: 32px;
+  margin-bottom: 14px;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+}
+.done    .nw-st-big-icon { color: var(--nw-red); }
+.active  .nw-st-big-icon {
+  color: var(--nw-red);
+  animation: nwIconBounce 1.6s ease-in-out infinite;
+}
+.pending .nw-st-big-icon { color: rgba(255,255,255,0.18); }
+@keyframes nwIconBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+/* ── Step label ── */
+.nw-st-name {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+.done    .nw-st-name { color: #ffffff; }
+.active  .nw-st-name { color: #ffffff; }
+.pending .nw-st-name { color: rgba(255,255,255,0.28); }
+
+/* ── Step sub ── */
+.nw-st-desc {
+  font-family: 'Muli', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+.done    .nw-st-desc { color: rgba(255,180,175,0.65); }
+.active  .nw-st-desc { color: rgba(255,180,175,0.55); }
+.pending .nw-st-desc { color: rgba(255,255,255,0.16); }
+
+/* ── Done checkmark overlay ── */
+.nw-st-check {
+  position: absolute;
+  top: 18px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--nw-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(212,43,34,0.5);
+  z-index: 3;
+}
+.nw-st-tile.pending .nw-st-check,
+.nw-st-tile.active  .nw-st-check { display: none; }
+
+/* ── Decorative large watermark number ── */
+.nw-st-watermark {
+  position: absolute;
+  bottom: -8px;
+  right: 10px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+}
+.done    .nw-st-watermark { color: rgba(212,43,34,0.10); }
+.active  .nw-st-watermark { color: rgba(212,43,34,0.14); }
+.pending .nw-st-watermark { color: rgba(255,255,255,0.04); }
+
+/* ── Sheen animation on done ── */
+.nw-st-tile.done::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 50%, transparent 60%);
+  animation: nwSheen 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+@keyframes nwSheen {
+  0%    { left: -60%; }
+  40%, 100% { left: 160%; }
+}
+
+/* ── Active tile pulse border ── */
+.nw-st-tile.active {
+  outline: none;
+  box-shadow: inset 1px 0 0 rgba(212,43,34,0.4), inset -1px 0 0 rgba(212,43,34,0.3);
+}
+
+@keyframes nwPulseRed {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(212,43,34,0.2), 0 0 8px rgba(212,43,34,0.5); }
+  50%       { box-shadow: 0 0 0 6px rgba(212,43,34,0.1), 0 0 16px rgba(212,43,34,0.7); }
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+  .nw-status-track {
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 10px;
+  }
+  .nw-st-tile { min-height: 140px; border-right: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .nw-st-tile:nth-child(2), .nw-st-tile:nth-child(4) { border-right: none; }
+  .nw-st-tile:nth-child(3), .nw-st-tile:nth-child(4) { border-bottom: none; }
+  .nw-st-big-icon { font-size: 24px; margin-bottom: 10px; }
+  .nw-st-name { font-size: 14px; }
+  .nw-st-watermark { font-size: 52px; }
+}
+
+/* ══════════════════════════
+   FORM CARD
+══════════════════════════ */
+.nw-track-card {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-top: 3px solid var(--nw-red);
+  border-radius: 0 0 12px 12px;
+  padding: 48px 52px 44px;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.45);
+  animation: nwFadeUp 0.8s ease 0.36s both;
+  position: relative;
+}
+
+/* red top strip accent */
+.nw-track-card::before {
+  content: '';
+  position: absolute;
+  top: -3px; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--nw-red-dark), var(--nw-red), #e85c55);
+  border-radius: 12px 12px 0 0;
+}
+
+.nw-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.nw-card-header-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--nw-red), var(--nw-red-dark));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(212,43,34,0.4);
+}
+.nw-card-header-text h3 {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.nw-card-header-text p {
+  font-family: 'Muli', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+.nw-input-row {
+  display: flex;
+  gap: 14px;
+  align-items: stretch;
+}
+.nw-input-wrap {
+  flex: 1;
+  position: relative;
+}
+.nw-input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.28);
+  font-size: 15px;
+  pointer-events: none;
+  transition: color 0.25s;
+  z-index: 1;
+}
+.nw-track-input {
+  width: 100%;
+  height: 56px;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  color: #ffffff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0 18px 0 48px;
+  outline: none;
+  transition: all 0.28s ease;
+  box-sizing: border-box;
+}
+.nw-track-input::placeholder {
+  color: rgba(255,255,255,0.22);
+  letter-spacing: 1px;
+  font-size: 14px;
+  text-transform: none;
+  font-family: 'Muli', sans-serif;
+  font-weight: 400;
+}
+.nw-track-input:focus {
+  border-color: var(--nw-red);
+  background: rgba(212,43,34,0.08);
+  box-shadow: 0 0 0 3px rgba(212,43,34,0.15);
+}
+.nw-track-input:focus ~ .nw-input-icon { color: var(--nw-red); }
+
+.nw-track-btn {
+  height: 56px;
+  padding: 0 36px;
+  background: linear-gradient(135deg, var(--nw-red), var(--nw-red-dark));
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.28s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  box-shadow: 0 6px 20px rgba(212,43,34,0.4);
+  flex-shrink: 0;
+}
+.nw-track-btn:hover {
+  background: linear-gradient(135deg, #e83d34, var(--nw-red));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(212,43,34,0.55);
+}
+.nw-track-btn:active { transform: translateY(0); }
+.nw-track-btn i { font-size: 15px; }
+
+.nw-form-hint {
+  margin-top: 14px;
+  color: rgba(255,255,255,0.22);
+  font-family: 'Muli', sans-serif;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.nw-form-hint i { color: rgba(212,43,34,0.6); font-size: 11px; }
+.nw-form-hint code {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 1px 7px;
+  border-radius: 3px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 1px;
+}
+
+.nw-error-block {
+  color: #ff8a84;
+  font-family: 'Muli', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  background: rgba(212,43,34,0.12);
+  border-left: 3px solid var(--nw-red);
+  padding: 10px 14px;
+  border-radius: 0 4px 4px 0;
+  display: block;
+}
+
+/* ── Features strip ── */
+.nw-features {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  margin-top: 56px;
+  flex-wrap: wrap;
+  animation: nwFadeUp 0.8s ease 0.52s both;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 700px;
+  width: 100%;
+  backdrop-filter: blur(8px);
+}
+.nw-feature {
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 22px 16px;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.02);
+  transition: all 0.25s;
+}
+.nw-feature:last-child { border-right: none; }
+.nw-feature:hover {
+  background: rgba(212,43,34,0.1);
+  color: #ff8a84;
+}
+.nw-feature i {
+  font-size: 20px;
+  color: var(--nw-red);
+  opacity: 0.85;
+  margin-bottom: 2px;
+}
+
+/* ── Animations ── */
+@keyframes nwFadeDown {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes nwFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .nw-track-card { padding: 32px 22px 28px; }
+  .nw-input-row { flex-direction: column; }
+  .nw-track-btn { width: 100%; justify-content: center; }
+  .nw-st-step { min-width: 68px; }
+  .nw-st-icon { width: 56px; height: 56px; font-size: 20px; margin-bottom: 10px; }
+  .nw-st-label { font-size: 10px; letter-spacing: 0.8px; }
+  .nw-st-sub { display: none; }
+  .nw-st-connector { margin-top: 28px; }
+  .nw-feature { min-width: 100%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .nw-feature:last-child { border-bottom: none; }
+}
+
+/* Hide the old page title */
+.page-header { display: none !important; }
+.site-main.post-229 { padding: 0 !important; }
+</style>
+
+<div class="nw-track-hero">
+  <div class="nw-grid-bg"></div>
+
+  <!-- Badge -->
+  <div class="nw-track-badge">
+    <i class="fas fa-satellite-dish"></i>
+    Real-Time Shipment Tracking
+  </div>
+
+  <!-- Heading -->
+  <h1 class="nw-track-title">Track Your <span class="nw-accent">Shipment</span></h1>
+  <p class="nw-track-subtitle">Enter your consignment number below for instant, live updates on your cargo's journey.</p>
+
+  <!-- ══ STATUS TRACKER — CARD TILES ══ -->
+  <div class="nw-status-track">
+
+    <!-- STEP 1: Confirmed -->
+    <div class="nw-st-tile done">
+      <div class="nw-st-check"><i class="fas fa-check"></i></div>
+      <div class="nw-st-num">
+        <span class="nw-step-dot">1</span>
+        <span class="nw-st-num-text">Step 01</span>
+      </div>
+      <div class="nw-st-big-icon"><i class="fas fa-file-contract"></i></div>
+      <div class="nw-st-name">Confirmed</div>
+      <div class="nw-st-desc">Order placed &amp; accepted</div>
+      <div class="nw-st-watermark">01</div>
+    </div>
+
+    <!-- STEP 2: Processing -->
+    <div class="nw-st-tile done">
+      <div class="nw-st-check"><i class="fas fa-check"></i></div>
+      <div class="nw-st-num">
+        <span class="nw-step-dot">2</span>
+        <span class="nw-st-num-text">Step 02</span>
+      </div>
+      <div class="nw-st-big-icon"><i class="fas fa-boxes"></i></div>
+      <div class="nw-st-name">Processing</div>
+      <div class="nw-st-desc">Preparing &amp; packing cargo</div>
+      <div class="nw-st-watermark">02</div>
+    </div>
+
+    <!-- STEP 3: In Transit -->
+    <div class="nw-st-tile active">
+      <div class="nw-st-num">
+        <span class="nw-step-dot">3</span>
+        <span class="nw-st-num-text">Step 03</span>
+      </div>
+      <div class="nw-st-big-icon"><i class="fas fa-shipping-fast"></i></div>
+      <div class="nw-st-name">In Transit</div>
+      <div class="nw-st-desc">En route to destination</div>
+      <div class="nw-st-watermark">03</div>
+    </div>
+
+    <!-- STEP 4: Delivered -->
+    <div class="nw-st-tile pending">
+      <div class="nw-st-num">
+        <span class="nw-step-dot">4</span>
+        <span class="nw-st-num-text">Step 04</span>
+      </div>
+      <div class="nw-st-big-icon"><i class="fas fa-map-marker-check"></i></div>
+      <div class="nw-st-name">Delivered</div>
+      <div class="nw-st-desc">Final destination reached</div>
+      <div class="nw-st-watermark">04</div>
+    </div>
+
+  </div>
+  <!-- ══ END STATUS TRACKER ══ -->
+
+  <!-- ══ TRACKING CARD ══ -->
+  <div class="nw-track-card">
+
+    <div class="nw-card-header">
+      <div class="nw-card-header-icon"><i class="fas fa-barcode"></i></div>
+      <div class="nw-card-header-text">
+        <h3>Enter Consignment No.</h3>
+        <p>Your tracking number is found on your receipt or shipping confirmation email</p>
+      </div>
+    </div>
+
+    <?php if (!empty($reg_rep)): ?>
+    <div class="nw-error-block"><i class="fas fa-exclamation-triangle"></i> <?php echo $reg_rep; ?></div>
+    <?php endif; ?>
+
+    <form method="post" name="wpcargo-track-form" action="index.php">
+      <input type="hidden" id="track_shipment_nonce" name="track_shipment_nonce" value="d41ce9fb96" />
+      <input type="hidden" name="_wp_http_referer" value="/track-form/" />
+
+      <div class="nw-input-row">
+        <div class="nw-input-wrap">
+          <input
+            class="nw-track-input"
+            type="text"
+            name="trackid"
+            value=""
+            autocomplete="off"
+            placeholder="Enter your tracking number…"
+            required
+            id="nw-trackid-input"
+          >
+          <span class="nw-input-icon"><i class="fas fa-search"></i></span>
+        </div>
+        <button class="nw-track-btn" type="submit" name="track">
+          <i class="fas fa-location-arrow"></i>
+          Track Now
+        </button>
+      </div>
+
+      <div class="nw-form-hint">
+        <i class="fas fa-info-circle"></i>
+        Example: <code>12345</code> &nbsp;—&nbsp; Enter the number exactly as shown on your receipt
+      </div>
+    </form>
+  </div>
+  <!-- ══ END TRACKING CARD ══ -->
+
+  <!-- ── Trust Features ── -->
+  <div class="nw-features">
+    <div class="nw-feature"><i class="fas fa-globe-americas"></i>Worldwide Coverage</div>
+    <div class="nw-feature"><i class="fas fa-bolt"></i>Instant Results</div>
+    <div class="nw-feature"><i class="fas fa-shield-alt"></i>100% Secure</div>
+    <div class="nw-feature"><i class="fas fa-headset"></i>24/7 Support</div>
+  </div>
+
+</div>
+<!-- REDESIGNED TRACK PAGE END -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ===== TRACK PAGE PREMIUM REDESIGN ===== */
